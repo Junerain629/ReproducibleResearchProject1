@@ -25,9 +25,9 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 #### Loading and preprocessing the data
 
-1. load data
-2. convert the string of dates to the date format
-3. summary data
+* load data
+* convert the string of dates to the date format
+* summary data
 
 
 ```r
@@ -55,8 +55,8 @@ summary(data)
 
 #### What is mean total number of steps taken per day?
 
-1. calculate the total number of steps taken per day
-2. plot histogram of the total number of steps taken each day
+* calculate the total number of steps taken per day
+* plot histogram of the total number of steps taken each day
 
 
 ```r
@@ -69,7 +69,7 @@ hist(totalsteps, col='grey', breaks=c(0, 2500,5000,7500, 10000,12500,15000,17500
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
-3. calculate and report the mean and median of the total number of steps taken per day
+* calculate and report the mean and median of the total number of steps taken per day
 
 
 ```r
@@ -93,8 +93,8 @@ print(paste("The median of the total number of steps taken per day is: ", steps.
 
 #### What is the average daily activity pattern?
 
-1. calcuate the average number of steps by time interval
-2. plot the 5-minute interval (x-axis) and the average number of steps taken
+* calcuate the average number of steps by time interval
+* plot the 5-minute interval (x-axis) and the average number of steps taken
 
 
 ```r
@@ -107,7 +107,7 @@ plot(names(avgstepsinterval), avgstepsinterval, type="l", xlab="5-minute Interva
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
-3. identify the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
+* identify the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
 
 ```r
@@ -123,7 +123,7 @@ print(paste("The 5-minute interval that contains the maximum number of steps on 
 
 #### Imputing missing values
 
-1. calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+* calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 
 ```r
@@ -134,11 +134,11 @@ print(paste("There are ", sum(is.na(data$steps)), " missing values in the datase
 ## [1] "There are  2304  missing values in the dataset"
 ```
 
-2. strategy for filling in missing values in the dataset
+* strategy for filling in missing values in the dataset
 
 I plan to replace the missing values with the mean value of the respective 5-minute interval.
 
-3. create a new dataset that is equal to the original dataset but with the missing data filled in
+* create a new dataset that is equal to the original dataset but with the missing data filled in
 
 
 ```r
@@ -168,7 +168,7 @@ summary(data2)
 ##  Max.   :806.00   Max.   :2012-11-30   Max.   :2355.0
 ```
 
-4. plot histogram of the total number of steps taken each day based on the new dataset
+* plot histogram of the total number of steps taken each day based on the new dataset
 
 
 ```r
@@ -182,7 +182,7 @@ hist(totalsteps2, col='grey', breaks=c(0, 2500,5000,7500, 10000,12500,15000,1750
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
 
-5. calculate and report the mean and median of the total number of steps taken per day based on the new dataset
+* calculate and report the mean and median of the total number of steps taken per day based on the new dataset
 
 
 ```r
@@ -204,17 +204,17 @@ print(paste("The median of the total number of steps taken per day after imputin
 ## [1] "The median of the total number of steps taken per day after imputing missing values is:  10762"
 ```
 
-6. discussion: Do these values differ from the estimates from the first part of the assignment?
+* discussion: Do these values differ from the estimates from the first part of the assignment?
 
 Yes. Before imputing the missing values, the mean value is 9354.23 and the median value is 10395. After imputing the missing values, the mean value is 10765.64 and the median value is 10762.
 
-7. discussion: What is the impact of imputing missing data on the estimates of the total daily number of steps?
+* discussion: What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 After imputing the missing values, the histogram figure of daily steps is closer to the normal distribution accross a day. Therefore, it is believeable that imputing the missing values leads to the better description of the reality. 
 
 #### Are there differences in activity patterns between weekdays and weekends?
 
-1. add a new column that distinguish weekdays from weekend in the data frame after imputing the missing values
+* add a new column that distinguish weekdays from weekend in the data frame after imputing the missing values
 
 
 ```r
@@ -231,7 +231,7 @@ for (i in 1:nrow(data2))
 }
 ```
 
-2. subset weekdays and weekend days
+* subset weekdays and weekend days
 
 
 ```r
@@ -239,7 +239,7 @@ data2.weekdays <- subset(data2, dayOfWeek == "weekday")
 data2.weekends <- subset(data2, dayOfWeek == "weekend")
 ```
 
-3. plot plot the 5-minute interval (x-axis) and the average number of steps taken, comparing the weekdays data to the weekends data
+* plot plot the 5-minute interval (x-axis) and the average number of steps taken, comparing the weekdays data to the weekends data
 
 
 ```r
